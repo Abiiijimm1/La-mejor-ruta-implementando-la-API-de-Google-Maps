@@ -10,7 +10,7 @@ costo_gasolina = 23.86
 costo_estimado_peaje = 50  
 
 
-gmaps = googlemaps.Client(key='AIzaSyDCdlWcmsljkLcA2fcN3TkvFaUOL4d3tbM')
+gmaps = googlemaps.Client(key='colocar tu api key')
 
 def geocode_place(place_name):
     geolocator = Nominatim(user_agent="route_finder")
