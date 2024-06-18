@@ -12,8 +12,8 @@
         }
         @font-face {
             font-family: "HeyComic";
-            src: url('/static/fonts/HeyComic-Regular.ttf') format('truetype'); /* Ruta a tu archivo de fuente Hey Comic */
-            /* Otros formatos de fuente pueden ser añadidos aquí si son necesarios */
+            src: url('/static/fonts/HeyComic-Regular.ttf') format('truetype'); 
+            
         }
         .container {
             display: flex;
@@ -106,11 +106,11 @@
             </form>
         </div>
         <div class="results-container" id="results-container">
-            <!-- Aquí se mostrarán los resultados -->
+            
             {{ results|safe }}
         </div>
         <div class="map-container" id="map-container">
-            <!-- Aquí se mostrará el mapa -->
+            
             {{ map_html|safe }}
         </div>
     </div>
