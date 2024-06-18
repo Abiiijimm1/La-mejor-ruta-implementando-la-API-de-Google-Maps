@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝕄𝔸ℙ𝔸 ℂ𝕆ℕ ℝ𝕌𝕋𝔸</title>
+    <style>
+        #map {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+</head>
+    <h1>𝕄𝔸ℙ𝔸 ℂ𝕆ℕ ℝ𝕌𝕋𝔸</h1>
+    <p>Distancia: {{ distance }} km</p>
+    <p>Tiempo: {{ duration }} minutos</p>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([{{ origin_lat }}, {{ origin_lon }}], 10);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var routeCoordinates = {{ route_coordinates | tojson }};
+        L.polyline(routeCoordinates, {color: 'blue'}).addTo(map);
+        
+        L.marker([{{ origin_lat }}, {{ origin_lon }}]).addTo(map)
+            .bindPopup('Origen')
+            .openPopup();
+        
+        L.marker([{{ destination_lat }}, {{ destination_lon }}]).addTo(map)
+            .bindPopup('Destino')
+            .openPopup();
+    </script>
+</body>
+</html>
